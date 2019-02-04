@@ -1,4 +1,6 @@
 ﻿using System;
+using Maandag2.Commands;
+
 
 namespace Maandag2
 {
@@ -6,7 +8,9 @@ namespace Maandag2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game.Start();
+            Game.CreatePlayerStart();
+            Game.CreateGame();
         }
     }
 }

@@ -6,20 +6,9 @@ namespace Maandag2.Model
 {
     class Player
     {
-       
-        String testje = "";
-        string tesn = "";
-        int i = 0;
+      public string firstName { get; set; }
+      public string lastName  { get; set; }
+      public int levelPoints { get; set; }
 
-        public int returnIets()
-        {
-            float x = (float)3.5;
-            string naam = "Aydin";
-            string stringtje = string.Format("Hallo {0}", naam);
-            string nieuwStringtje = stringtje + "Aydin";
-
-            int i = 0;
-            return i;
-        }
     }
 }
