@@ -1,0 +1,11 @@
+c:\users\oaalili\source\repos\Maandag2\Maandag2\bin\Debug\netcoreapp2.1\Maandag2.deps.json
+c:\users\oaalili\source\repos\Maandag2\Maandag2\bin\Debug\netcoreapp2.1\Maandag2.runtimeconfig.json
+c:\users\oaalili\source\repos\Maandag2\Maandag2\bin\Debug\netcoreapp2.1\Maandag2.runtimeconfig.dev.json
+c:\users\oaalili\source\repos\Maandag2\Maandag2\bin\Debug\netcoreapp2.1\Maandag2.dll
+c:\users\oaalili\source\repos\Maandag2\Maandag2\bin\Debug\netcoreapp2.1\Maandag2.pdb
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.csprojAssemblyReference.cache
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.csproj.CoreCompileInputs.cache
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.AssemblyInfoInputs.cache
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.AssemblyInfo.cs
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.dll
+c:\users\oaalili\source\repos\Maandag2\Maandag2\obj\Debug\netcoreapp2.1\Maandag2.pdb
