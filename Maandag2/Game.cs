@@ -4,13 +4,16 @@ using System.Text;
 using Maandag2.Commands;
 using Maandag2.Model;
 
+/// <summary>
+/// Here in 
+/// </summary>
+
 namespace Maandag2
 {
     static class Game
     {
-       
-
-
+        private static PlayerHandler playerhandler = PlayerHandler.Instance;
+        
         public static void Start()
         {
             Console.WriteLine(@" __ __ __   ______   __       ______   ______   ___ __ __   ______       _________  ______       
@@ -27,9 +30,12 @@ namespace Maandag2
      \::\ \   \: \ \\::\ \\:\____/\    \:\_\ \ \  \:.\ \  \ \\. \  \  \ \\:\____/\               
       \__\/    \__\/ \::\/ \_____\/     \_____\/   \__\/\__\/ \__\/ \__\/ \_____\/    ");
 
+
         }
 
-        //dit nog naar de player class zetten 
+
+
+        //Player aanmaken 
         public static void CreatePlayerStart()
         {
             //firtsname 
@@ -42,21 +48,50 @@ namespace Maandag2
             string inputLastName = Console.ReadLine(); // userinput
             
             //player aangemaakt  
-            Player player = new Player();
-            player.firstName = inputFirstName;
+            playerhandler.CreatePlayer(inputFirstName, inputLastName);
 
-            player.firstName = inputLastName;
-            string personalStartSentece = string.Format("Soldier {0} you have the fight 4 life", inputLastName);
-            player.levelPoints = 20;
-            string personalWelcomeSentece = string.Format("Welcome {0} 2 the game you have {1} lifepoints", inputFirstName, player.levelPoints);
 
+            Console.WriteLine(@"                            ==(W{==========-      /===-                        
+                              ||  (.--.)         /===-_---~~~~~~~~~------____  
+                              | \_,|**|,__      |===-~___                _,-' `
+                 -==\\        `\ ' `--'   ),    `//~\\   ~~~~`---.___.-~~      
+             ______-==|        /`\_. .__/\ \    | |  \\           _-~`         
+       __--~~~  ,-/-==\\      (   | .  |~~~~|   | |   `\        ,'             
+    _-~       /'    |  \\     )__/==0==-\<>/   / /      \      /               
+  .'        /       |   \\      /~\___/~~\/  /' /        \   /'                
+ /  ____  /         |    \`\.__/-~~   \  |_/'  /          \/'                  
+/-'~    ~~~~~---__  |     ~-/~         ( )   /'        _--~`                   
+                  \_|      /        _) | ;  ),   __--~~                        
+                    '~~--_/      _-~/- |/ \   '-~ \                            
+                   {\__--_/}    / \\_>-|)<__\      \                           
+                   /'   (_/  _-~  | |__>--<__|      |                          
+                  |   _/) )-~     | |__>--<__|      |                          
+                  / /~ ,_/       / /__>---<__/      |                          
+                 o-o _//        /-~_>---<__-~      /                           
+                 (^(~          /~_>---<__-      _-~                            
+                ,/|           /__>--<__/     _-~                               
+             ,//('(          |__>--<__|     /                  .----_          
+            ( ( '))          |__>--<__|    |                 /' _---_~\        
+         `-)) )) (           |__>--<__|    |               /'  /     ~\`\      
+        ,/,'//( (             \__>--<__\    \            /'  //        ||      
+      ,( ( ((, ))              ~-__>--<_~-_  ~--____---~' _/'/        /'       
+    `~/  )` ) ,/|                 ~-_~>--<_/-__       __-~ _/                  
+  ._-~//( )/ )) `                    ~~-'_/_/ /~~~~~~~__--~                    
+   ;'( ')/ ,)(                              ~~~~~~~~~~                         
+  ' ') '( (/                                                                   
+    '   '  `");
+
+            string personalStartSentece = string.Format("Soldier {0} you have the fight 4 life", playerhandler.GetPlayer.LastName);
+            string personalWelcomeSentece = string.Format("Welcome {0} 2 the game you have {1} lifepoints", playerhandler.GetPlayer.FirstName, playerhandler.GetPlayer.LevelPoints);
 
             Console.WriteLine(personalWelcomeSentece);
-            Console.WriteLine(personalStartSentece);        
+            Console.WriteLine(personalStartSentece);  
+            
+
         }
 
-        //monster class zetten 
-        public static void CreateMonster() {
+        //Monster aanmaken 
+        public static Monster CreateMonster() {
             Monster monster = new Monster();
             monster.monsterName = "Crazy duck";
             monster.attackPoints = 5;
@@ -211,38 +246,53 @@ XX                    XXXXXXXXXX                XXXXXXXXXXXX             XX
                                   XX         XX");
 
 
-            // hier switch gebruiken 
+  
             // hier random getal
             Random rnd = new Random();
             int theRightMonster = rnd.Next(1, 4); // creates a number between 1 and 3
-
-            if (theRightMonster.Equals(1))
+            switch (theRightMonster)
             {
-                Console.WriteLine(monster.asciiartMonster);
+                case 1:
+                    {
+                        Console.WriteLine(monster.asciiartMonster);
+                        Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster.monsterName, monster.attackPoints);
+                        return monster;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine(monster2.asciiartMonster);
+                        Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster2.monsterName, monster2.attackPoints);
+                        return monster2;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine(monster3.asciiartMonster);
+                        Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster3.monsterName, monster3.attackPoints);
+                        return monster3;
+                    }
+                default:
+                    {
+                        System.Console.WriteLine("you are lucky no monsters here :)");
+                        return null;
+                    }
+            };
 
-                Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster.monsterName, monster.attackPoints);
-            }
-            else if (theRightMonster.Equals(2))
-            {
-                Console.WriteLine(monster2.asciiartMonster);
-
-                Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster2.monsterName, monster2.attackPoints);
-            }
-            else if (theRightMonster.Equals(3))
-            {
-                Console.WriteLine(monster3.asciiartMonster);
-
-                Console.WriteLine("Hello I am {0} and I will Attack you with {1} levelpoints", monster3.monsterName, monster3.attackPoints);
-            }
-          
-        }
-
-        // naar room class zetten <BEN NU Hier>
-        public static void DamagePlayer(int playerPoints, int monsterPoints)
-        {
            
         }
 
+        //
+        public static int AttackPlayer(int playerPoints, int monsterPoints)
+        {
+            playerPoints = playerPoints - monsterPoints;
+            return playerPoints;
+        }
+
+
+        public static int HealthPlayer(int playerPoints)
+        {
+            playerPoints = playerPoints + 5;
+            return playerPoints;
+        }
 
         // naar room class zetten 
         public static void CreateRoom() {
@@ -254,11 +304,40 @@ XX                    XXXXXXXXXX                XXXXXXXXXXXX             XX
             Commands.CommandHandler.CommandInGame();
         }
 
-
-
-
             public static void End()
         {
+           Console.WriteLine(@"     ----o-   
+              _____________   %%% , ,%_________
+             (___________,,)  %c    >) ,________)
+                (_________,,)  )   =  ,______)
+                     (_____,,)/ _/__,,____)
+                        / \   \__/ /\
+                       /\ |        \/\
+                      /__\|'   ,   /  \,
+                     < -  '====o==,  /_\
+                    /    /`       |\ __ \
+                   /__,_/    |  _/, \____\
+                   //   |     \/  \    \
+                 _( \   \      \  \   _/ \
+                  //|    \     \  \    |/|
+                         < `  _\ -)
+                        /    |_/ |
+                       |    / |_/
+                      /-_,  ' /|
+                      \/ \_,--.,
+                      '(    )'
+                     / |    | \
+                     |,/    \,/   ");
+            Console.WriteLine(@"
+ ______     ________  ______    
+/_____/\   /_______/\/_____/\   
+\:::_ \ \  \__.::._\/\:::_ \ \  
+ \:(_) ) )_   \::\ \  \:(_) \ \ 
+  \: __ `\ \  _\::\ \__\: ___\/ 
+   \ \ `\ \ \/__\::\__/\\ \ \   
+    \_\/ \_\/\________\/ \_\/   
+                                
+");
             Console.WriteLine("Press a key to end the game");
             Console.ReadLine();
 

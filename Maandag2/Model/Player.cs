@@ -4,11 +4,16 @@ using System.Text;
 
 namespace Maandag2.Model
 {
-    class Player
+    public class Player
     {
-      public string firstName { get; set; }
-      public string lastName  { get; set; }
-      public int levelPoints { get; set; }
+      public string FirstName { get; private set; }
+      public string LastName  { get; private set; }
+        public int LevelPoints { get; set; } = 20;
 
+        public Player(string firstName, string  lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+    }
     }
 }

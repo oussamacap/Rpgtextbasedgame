@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maandag2.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,14 @@ namespace Maandag2.Commands
     public static class CommandHandler
     {
         public static void CommandInGame(){
+
+
+
             string TheCase = Console.ReadLine(); // userinput
+
+
+
+            ///player 
 
             switch (TheCase)
             {
@@ -16,7 +24,13 @@ namespace Maandag2.Commands
 
                     break;
                 case "Left":
-                    Game.CreateMonster();
+                    Monster monster = Game.CreateMonster();
+                    if (!monster.Equals(null))
+                    {
+                        Game.AttackPlayer(20 , monster.attackPoints);
+                    }
+                    
+                    
                     break;
                 case "Right":
                     Console.WriteLine("Case 3");
